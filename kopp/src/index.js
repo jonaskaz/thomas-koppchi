@@ -1,15 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { createRoot } from 'react-dom/client';
+import {BrowserRouter} from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Gateway from './pages/Gateway';
+import ND from './pages/ND';
 import './index.css';
-import Home from './Home.js';
 
-ReactDOM.render(
-  <Router>
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+  <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />}/>
+      <Route path="/input" element={<Gateway />}/>
+      <Route path="/nd" element={<ND/>} />
     </Routes>
-  </Router>,
-
-  document.getElementById("root")
+  </BrowserRouter>
 );
+
+
